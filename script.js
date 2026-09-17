@@ -97,6 +97,20 @@ filterButtons.forEach(function (button) {
 
 });
 
+// =========================
+// CERTIFICATION SLIDER
+// =========================
+
+const certificateTrack = document.querySelector(".certifications-track");
+
+if (certificateTrack) {
+    const certificates = Array.from(certificateTrack.children);
+
+    certificates.forEach((certificate) => {
+        const clone = certificate.cloneNode(true);
+        certificateTrack.appendChild(clone);
+    });
+}
 
 // =========================
 // CURRENT YEAR
