@@ -789,15 +789,29 @@ img {
    CERTIFICATIONS
    ========================= */
 
-.certifications-grid {
-    display: grid;
+.certifications-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0 30px;
+}
 
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
+.certifications-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: certificateScroll 35s linear infinite;
 }
 
 .certificate-card {
+    width: 280px;
+    min-height: 180px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     background: white;
 
     border: 1px solid var(--border);
@@ -807,28 +821,59 @@ img {
     padding: 28px;
 
     box-shadow: var(--shadow);
+
+    text-decoration: none;
+    color: inherit;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.14);
 }
 
 .certificate-card h3 {
     font-size: 1.08rem;
-
     margin-bottom: 12px;
 }
 
 .certificate-card p {
     color: var(--text-light);
-
     margin-bottom: 18px;
 }
 
-.certificate-link {
+.certificate-card span {
     color: var(--primary);
-
     font-weight: 800;
-
     font-size: 0.9rem;
 }
 
+@keyframes certificateScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.certifications-track:hover {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .certificate-card {
+        width: 240px;
+        min-height: 170px;
+    }
+
+    .certifications-track {
+        gap: 16px;
+        animation-duration: 30s;
+    }
+}
 
 /* =========================
    ACHIEVEMENTS
