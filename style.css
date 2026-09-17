@@ -886,92 +886,101 @@ img {
     }
 }
 
-/* =========================
-   ACHIEVEMENTS
-   ========================= */
-
-.achievement-grid {
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 18px;
-}
-
-.achievement-card {
-    background: white;
-
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    padding: 25px;
-
-    box-shadow: var(--shadow);
-}
-
-.achievement-card h3 {
-    margin-bottom: 10px;
-
-    color: var(--primary);
-}
-
-.achievement-card p {
-    color: var(--text-light);
-
-    font-size: 0.92rem;
-}
-
 
 /* =========================
    EDUCATION
    ========================= */
 
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .education-card {
     display: flex;
-
-    justify-content: space-between;
-
     align-items: center;
-
-    gap: 25px;
+    justify-content: space-between;
+    gap: 30px;
 
     background: white;
-
     border: 1px solid var(--border);
-
     border-radius: var(--radius);
 
-    padding: 30px;
+    padding: 28px 30px;
 
     box-shadow: var(--shadow);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+.education-content {
+    flex: 1;
+}
+
+.education-year {
+    display: inline-block;
+
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 0.9rem;
+
+    margin-bottom: 8px;
 }
 
 .education-card h3 {
+    font-size: 1.15rem;
     margin-bottom: 8px;
+}
+
+.education-card h4 {
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 600;
+
+    margin-bottom: 12px;
 }
 
 .education-card p {
     color: var(--text-light);
+    margin-bottom: 0;
+}
+
+.education-card p strong {
+    color: var(--text);
 }
 
 .education-status {
-    background: #ecfdf3;
-
-    color: #027a48;
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 0.9rem;
 
     padding: 8px 14px;
 
-    border-radius: 999px;
-
-    font-size: 0.8rem;
-
-    font-weight: 800;
+    border: 1px solid var(--border);
+    border-radius: 20px;
 
     white-space: nowrap;
 }
 
+@media (max-width: 768px) {
 
+    .education-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .education-status {
+        align-self: flex-start;
+    }
+
+}
 /* =========================
    PROFILES
    ========================= */
