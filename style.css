@@ -789,6 +789,7 @@ img {
    CERTIFICATIONS
    ========================= */
 
+
 .certifications-slider {
     width: 100%;
     overflow: hidden;
@@ -800,7 +801,10 @@ img {
     display: flex;
     gap: 24px;
     width: max-content;
+
+    /* Right to left */
     animation: certificateScroll 35s linear infinite;
+    will-change: transform;
 }
 
 .certificate-card {
@@ -849,21 +853,28 @@ img {
     font-size: 0.9rem;
 }
 
+/* Continuous right-to-left movement */
+
 @keyframes certificateScroll {
-    from {
+    0% {
         transform: translateX(0);
     }
 
-    to {
+    100% {
         transform: translateX(-50%);
     }
 }
+
+/* Pause when mouse is over certificates */
 
 .certifications-track:hover {
     animation-play-state: paused;
 }
 
+/* Mobile */
+
 @media (max-width: 768px) {
+
     .certificate-card {
         width: 240px;
         min-height: 170px;
