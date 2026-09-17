@@ -887,9 +887,7 @@ img {
 }
 
 
-/* =========================
-   EDUCATION
-   ========================= */
+
 
 /* =========================
    EDUCATION
@@ -1044,30 +1042,85 @@ img {
    CONTACT
    ========================= */
 
+/* =========================
+   CONTACT
+   ========================= */
+
 .contact-section {
     text-align: center;
-
-    padding-bottom: 120px;
+    padding-bottom: 80px;
 }
 
 .contact-description {
     max-width: 650px;
-
-    margin: 0 auto 30px;
-
+    margin: 0 auto 35px;
     color: var(--text-light);
-
-    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 .contact-buttons {
     display: flex;
-
     justify-content: center;
-
-    gap: 15px;
-
+    align-items: center;
     flex-wrap: wrap;
+    gap: 18px;
+}
+
+.contact-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px 40px;
+}
+
+.contact-details p {
+    margin: 0;
+    color: var(--text-light);
+}
+
+.contact-details strong {
+    color: var(--text);
+}
+
+.contact-details a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+
+    .contact-section {
+        padding-bottom: 60px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .contact-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .contact-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+
 }
 
 
