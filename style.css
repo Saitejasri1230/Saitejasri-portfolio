@@ -222,15 +222,23 @@ img {
     position: relative;
 
     z-index: 2;
+
+    flex-shrink: 0;
+
+    aspect-ratio: 1 / 1;
 }
 
 .hero-photo img {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
     display: block;
+
+    object-fit: cover;
+    lex-shrink: 0;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 50%;
 }
 
 /* =========================
@@ -242,6 +250,8 @@ img {
     min-height: calc(100vh - 72px);
 
     display: flex;
+
+    flex-direction: column;
 
     align-items: center;
 
