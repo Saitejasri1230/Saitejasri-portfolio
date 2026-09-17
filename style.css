@@ -898,7 +898,7 @@ img {
 .education-list {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
 .education-list .education-card {
