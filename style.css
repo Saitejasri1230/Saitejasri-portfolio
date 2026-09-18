@@ -1167,27 +1167,27 @@ img {
    FOOTER
    ========================= */
 
+
+
 .footer {
+    width: 100%;
     background: #111827;
-
     color: white;
-
     text-align: center;
-
-    padding: 35px 20px;
+    padding: 25px 20px;
+    margin: 0;
 }
 
-.footer p:first-child {
-    font-weight: 700;
-
-    margin-bottom: 5px;
+.footer p {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 0.95rem;
+    text-align: center;
 }
 
-.footer p:last-child {
-    color: #98a2b3;
-
-    font-size: 0.85rem;
-}
 
 
 /* =========================
