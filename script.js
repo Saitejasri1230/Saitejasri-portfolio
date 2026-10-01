@@ -1,6 +1,6 @@
 // =========================================================
 // SAI TEJASRI PORTFOLIO
-// Website Interactions
+// Website Interactions (updated)
 // =========================================================
 
 
@@ -11,29 +11,37 @@
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
+function setMenu(open) {
+    navLinks.classList.toggle("show", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+}
+
 if (menuToggle && navLinks) {
 
     menuToggle.addEventListener("click", function () {
-
-        navLinks.classList.toggle("show");
-
+        setMenu(!navLinks.classList.contains("show"));
     });
 
-
-    // Close mobile menu after clicking a navigation link
-
-    const navigationItems = navLinks.querySelectorAll("a");
-
-    navigationItems.forEach(function (item) {
-
+    // Close the menu after clicking a navigation link
+    navLinks.querySelectorAll("a").forEach(function (item) {
         item.addEventListener("click", function () {
-
-            navLinks.classList.remove("show");
-
+            setMenu(false);
         });
-
     });
 
+    // Close the menu with the Escape key
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            setMenu(false);
+        }
+    });
+
+    // Reset the menu when the window is resized to desktop width
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 850) {
+            setMenu(false);
+        }
+    });
 }
 
 
@@ -41,54 +49,33 @@ if (menuToggle && navLinks) {
 // PROJECT FILTERING
 // =========================
 
-const filterButtons =
-    document.querySelectorAll(".filter-btn");
-
-const projectCards =
-    document.querySelectorAll(".project-card");
-
+const filterButtons = document.querySelectorAll(".filter-btn");
+const projectCards = document.querySelectorAll(".project-card");
 
 filterButtons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        const selectedCategory =
-            button.getAttribute("data-filter");
+        const selectedCategory = button.getAttribute("data-filter");
 
-
-        // Remove active state from all buttons
-
+        // Update active state
         filterButtons.forEach(function (btn) {
-
             btn.classList.remove("active");
-
+            btn.setAttribute("aria-pressed", "false");
         });
 
-
-        // Add active state to clicked button
-
         button.classList.add("active");
-
+        button.setAttribute("aria-pressed", "true");
 
         // Show / hide projects
-
         projectCards.forEach(function (project) {
 
-            const projectCategory =
-                project.getAttribute("data-category");
+            const projectCategory = project.getAttribute("data-category");
 
-
-            if (
-                selectedCategory === "all" ||
-                projectCategory === selectedCategory
-            ) {
-
+            if (selectedCategory === "all" || projectCategory === selectedCategory) {
                 project.classList.remove("hidden");
-
             } else {
-
                 project.classList.add("hidden");
-
             }
 
         });
@@ -97,6 +84,7 @@ filterButtons.forEach(function (button) {
 
 });
 
+
 // =========================
 // CERTIFICATION SLIDER
 // =========================
@@ -104,25 +92,32 @@ filterButtons.forEach(function (button) {
 const certificateTrack = document.querySelector(".certifications-track");
 
 if (certificateTrack) {
+
     const certificates = Array.from(certificateTrack.children);
 
-    certificates.forEach((certificate) => {
+    certificates.forEach(function (certificate) {
+
         const clone = certificate.cloneNode(true);
+
+        // Duplicates are only for the seamless loop:
+        // hide them from screen readers and the Tab key
+        clone.setAttribute("aria-hidden", "true");
+        clone.setAttribute("tabindex", "-1");
+        clone.classList.add("is-clone");
+
         certificateTrack.appendChild(clone);
+
     });
+
 }
+
 
 // =========================
 // CURRENT YEAR
 // =========================
 
-const currentYear =
-    document.getElementById("currentYear");
-
+const currentYear = document.getElementById("currentYear");
 
 if (currentYear) {
-
-    currentYear.textContent =
-        new Date().getFullYear();
-
+    currentYear.textContent = new Date().getFullYear();
 }
