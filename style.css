@@ -1,6 +1,6 @@
 /* =========================================================
    SAI TEJASRI PORTFOLIO
-   Main Website Styles (updated)
+   Main Website Styles 
    ========================================================= */
 
 
@@ -1034,5 +1034,31 @@ button:focus-visible {
     .project-card,
     .experience-card {
         padding: 22px;
+    }
+}
+
+
+/* =========================
+   TEXT WRAPPING FIX (PHONES)
+   ========================= */
+
+/* Balance line lengths so text doesn't break awkwardly */
+.hero h2,
+.hero-description,
+.about-text p,
+.section-description,
+.contact-description {
+    text-wrap: balance;
+}
+
+/* On phones, let the sentences flow naturally
+   instead of forcing a line break after each one */
+@media (max-width: 650px) {
+    .hero-description br {
+        display: none;
+    }
+
+    .hero-description {
+        font-size: 1rem;
     }
 }
